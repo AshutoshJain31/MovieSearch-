@@ -1,7 +1,12 @@
 import React, { useState } from "react";
-
-const Search = () => {
-  const [searchMovie, setSearchMovie] = useState("");
+interface ISearch{
+  searchMovie: string;
+  onSearch: (e: string) => void;
+}
+const Search = ({
+  searchMovie,
+  onSearch,
+}: ISearch) => {
   return (
     <div className="search">
       <div>
@@ -10,10 +15,9 @@ const Search = () => {
           type="text"
           placeholder="Search for Movie"
           value={searchMovie}
-          onChange={(e) => setSearchMovie(e.target.value)}
+          onChange={(e) => onSearch(e.target.value)}
         />
       </div>
-      
     </div>
   );
 };
